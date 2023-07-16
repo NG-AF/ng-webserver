@@ -15,7 +15,7 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/NG-AF/ng-webserver/total) ![Contributors](https://img.shields.io/github/contributors/NG-AF/ng-webserver?color=dark-green) ![Issues](https://img.shields.io/github/issues/NG-AF/ng-webserver) ![License](https://img.shields.io/badge/license-MPL2.0-blue)
+![Contributors](https://img.shields.io/github/contributors/NG-AF/ng-webserver?color=dark-green) ![Issues](https://img.shields.io/github/issues/NG-AF/ng-webserver) ![License](https://img.shields.io/badge/license-MPL2.0-blue)
 
 
 ## Table Of Contents
@@ -63,7 +63,7 @@ pacman -S nodejs npm
 1. Clone the repo
 
 ```bash
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/NG-AF/ng-webserver.git
 ```
 
 2. Install nodejs dependencies
