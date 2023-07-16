@@ -15,7 +15,7 @@
   </p>
 </p>
 
-![Downloads](https://img.shields.io/github/downloads/NG-AF/ng-webserver/total) ![Contributors](https://img.shields.io/github/contributors/NG-AF/ng-webserver?color=dark-green) ![Issues](https://img.shields.io/github/issues/NG-AF/ng-webserver) ![License](https://img.shields.io/badge/license-MPL2.0-blue)
+![Contributors](https://img.shields.io/github/contributors/NG-AF/ng-webserver?color=dark-green) ![Issues](https://img.shields.io/github/issues/NG-AF/ng-webserver) ![License](https://img.shields.io/badge/license-MPL2.0-blue)
 
 
 ## Table Of Contents
