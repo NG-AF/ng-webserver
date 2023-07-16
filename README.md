@@ -3,13 +3,12 @@ This code is written in order to display data from all of the sensors in the NG 
 
 # For legal stuff -> [LICENSE](./LICENSE.md)
 
-## Installation
+## Installation for Development
 
 ```bash
 git clone https://github.com/NG-AF/ng-webServer.git
 cd ng-sensorUnit/
 ```
-
 
 ### For client
 ```bash
