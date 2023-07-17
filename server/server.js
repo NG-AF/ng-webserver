@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
 	console.log(`User connected: ${socket.id}`);
-
+	//TODO: Remove this
 	socket.on("msg", (data) => {
 		socket.emit("rmsg", data);
 	});
