@@ -1,0 +1,207 @@
+/************************************************************************
+                    Source Code Form License Notice
+            -------------------------------------------
+
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.
+*************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px;
+  grid-gap: 20px;
+}
+.App .left {
+  padding: 20px;
+  text-align: center;
+}
+.App .left h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+.App .left .gyroDataVisualization {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.App .left .gyroDataVisualization .gyroXZ {
+  width: 300px;
+  height: 300px;
+  border: 2px black solid;
+  position: relative;
+  transition: 0.05s ease;
+}
+.App .left .gyroDataVisualization .gyroXZ .centerDot {
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: calc(50% - 3px);
+  left: calc(50% - 3px);
+  background: #000;
+}
+.App .left .gyroDataVisualization .gyroXZ p.x {
+  position: absolute;
+  top: calc(50% - 16px);
+  left: -24px;
+}
+.App .left .gyroDataVisualization .gyroXZ p.x::after {
+  position: absolute;
+  content: "";
+  width: 300px;
+  height: 1px;
+  background: #000;
+  left: 22px;
+  top: 16px;
+}
+.App .left .gyroDataVisualization .gyroXZ p.z {
+  position: absolute;
+  left: calc(50% - 5px);
+  top: -32px;
+}
+.App .left .gyroDataVisualization .gyroXZ p.z::after {
+  position: absolute;
+  content: "";
+  height: 300px;
+  width: 1px;
+  background: #000;
+  left: 5px;
+  top: 30px;
+}
+.App .left .gyroDataVisualization .gyroY {
+  width: 150px;
+  height: 50px;
+  border: 2px black solid;
+  position: relative;
+  transition: 0.05s ease;
+  background: linear-gradient(to right, #000 33%, #fff 66%);
+}
+.App .left .gyroDataVisualization .gyroY .centerDot {
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: calc(50% - 3px);
+  left: calc(50% - 3px);
+  background: #000;
+}
+.App .left ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 50px;
+  margin-top: 30px;
+  position: relative;
+}
+.App .left ul li {
+  position: absolute;
+}
+.App .left ul li:nth-child(1) {
+  top: 0;
+  left: 35%;
+}
+.App .left ul li:nth-child(3) {
+  top: 0;
+  right: 35%;
+}
+.App .right h2 {
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+.App .right .accelDataVisualization {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.App .right .accelDataVisualization .accelXZ {
+  width: 300px;
+  height: 300px;
+  border: 2px black solid;
+  position: relative;
+  transition: 0.05s ease;
+}
+.App .right .accelDataVisualization .accelXZ p.x {
+  position: absolute;
+  top: calc(50% - 16px);
+  left: -24px;
+}
+.App .right .accelDataVisualization .accelXZ p.x::after {
+  position: absolute;
+  content: "";
+  width: 300px;
+  height: 1px;
+  background: #000;
+  left: 22px;
+  top: 16px;
+}
+.App .right .accelDataVisualization .accelXZ p.z {
+  position: absolute;
+  left: calc(50% - 5px);
+  top: -32px;
+}
+.App .right .accelDataVisualization .accelXZ p.z::after {
+  position: absolute;
+  content: "";
+  height: 300px;
+  width: 1px;
+  background: #000;
+  left: 5px;
+  top: 30px;
+}
+.App .right .accelDataVisualization .accelXZ .centerDot {
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: calc(50% - 3px);
+  left: calc(50% - 3px);
+  background: #000;
+}
+.App .right .accelDataVisualization .accelY {
+  height: 300px;
+  width: 50px;
+  border: 2px black solid;
+  position: relative;
+  transition: 0.05s ease;
+  background: linear-gradient(to top, #b46407, 40%, #1599ce 60%);
+}
+.App .right .accelDataVisualization .accelY .centerDot {
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: calc(50% - 3px);
+  left: calc(50% - 3px);
+  background: #000;
+}
+.App .right ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: 50px;
+  margin-top: 30px;
+  position: relative;
+}
+.App .right ul li {
+  position: absolute;
+}
+.App .right ul li:nth-child(1) {
+  top: 0;
+  left: 35%;
+}
+.App .right ul li:nth-child(3) {
+  top: 0;
+  right: 35%;
+}/*# sourceMappingURL=App.css.map */

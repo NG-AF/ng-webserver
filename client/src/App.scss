@@ -1,0 +1,241 @@
+/************************************************************************
+                    Source Code Form License Notice
+            -------------------------------------------
+
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.
+*************************************************************************/
+
+$visBoxSize: 300px;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.App {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin: 20px;
+	grid-gap: 20px;
+
+	.left {
+		padding: 20px;
+		text-align: center;
+
+		h2 {
+			margin-bottom: 20px;
+			font-size: 32px;
+		}
+
+		.gyroDataVisualization {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 50px;
+
+			.gyroXZ {
+				width: $visBoxSize;
+				height: $visBoxSize;
+				border: 2px black solid;
+				position: relative;
+				transition: 0.05s ease;
+
+				.centerDot {
+					width: 6px;
+					height: 6px;
+					position: absolute;
+					top: calc(50% - 3px);
+					left: calc(50% - 3px);
+					background: #000;
+				}
+
+				p.x {
+					position: absolute;
+					top: calc(50% - 16px);
+					left: -24px;
+
+					&::after {
+						position: absolute;
+						content: '';
+						width: $visBoxSize;
+						height: 1px;
+						background: #000;
+						left: 22px;
+						top: 16px;
+					}
+				}
+
+				p.z {
+					position: absolute;
+					left: calc(50% - 5px);
+					top: -32px;
+
+					&::after {
+						position: absolute;
+						content: '';
+						height: $visBoxSize;
+						width: 1px;
+						background: #000;
+						left: 5px;
+						top: 30px;
+					}
+				}
+			}
+
+			.gyroY {
+				width: calc($visBoxSize / 2);
+				height: 50px;
+				border: 2px black solid;
+				position: relative;
+				transition: 0.05s ease;
+				background: linear-gradient(to right, #000 33%, #fff 66%);
+
+				.centerDot {
+					width: 6px;
+					height: 6px;
+					position: absolute;
+					top: calc(50% - 3px);
+					left: calc(50% - 3px);
+					background: #000;
+				}
+			}
+		}
+
+		ul {
+			display: flex;
+			width: 100%;
+			justify-content: space-evenly;
+			gap: 50px;
+			margin-top: 30px;
+			position: relative;
+
+			li {
+				position: absolute;
+
+				&:nth-child(1) {
+					top: 0;
+					left: 35%;
+				}
+
+				&:nth-child(3) {
+					top: 0;
+					right: 35%;
+				}
+			}
+		}
+	}
+
+	.right {
+		h2 {
+			margin-bottom: 20px;
+			font-size: 32px;
+		}
+
+		.accelDataVisualization {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 50px;
+
+			.accelXZ {
+				width: $visBoxSize;
+				height: $visBoxSize;
+				border: 2px black solid;
+				position: relative;
+				transition: 0.05s ease;
+
+				p.x {
+					position: absolute;
+					top: calc(50% - 16px);
+					left: -24px;
+
+					&::after {
+						position: absolute;
+						content: '';
+						width: $visBoxSize;
+						height: 1px;
+						background: #000;
+						left: 22px;
+						top: 16px;
+					}
+				}
+
+				p.z {
+					position: absolute;
+					left: calc(50% - 5px);
+					top: -32px;
+
+					&::after {
+						position: absolute;
+						content: '';
+						height: $visBoxSize;
+						width: 1px;
+						background: #000;
+						left: 5px;
+						top: 30px;
+					}
+				}
+
+				.centerDot {
+					width: 6px;
+					height: 6px;
+					position: absolute;
+					top: calc(50% - 3px);
+					left: calc(50% - 3px);
+					background: #000;
+				}
+			}
+
+			.accelY {
+				height: $visBoxSize;
+				width: 50px;
+				border: 2px black solid;
+				position: relative;
+				transition: 0.05s ease;
+				background: linear-gradient(to top, #b46407, 40%, #1599ce 60%);
+
+				.centerDot {
+					width: 6px;
+					height: 6px;
+					position: absolute;
+					top: calc(50% - 3px);
+					left: calc(50% - 3px);
+					background: #000;
+				}
+			}
+		}
+
+		ul {
+			display: flex;
+			width: 100%;
+			justify-content: space-evenly;
+			gap: 50px;
+			margin-top: 30px;
+			position: relative;
+
+			li {
+				position: absolute;
+
+				&:nth-child(1) {
+					top: 0;
+					left: 35%;
+				}
+
+				&:nth-child(3) {
+					top: 0;
+					right: 35%;
+				}
+			}
+		}
+	}
+}
