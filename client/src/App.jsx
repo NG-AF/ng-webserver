@@ -28,8 +28,9 @@ export default function App() {
 
 	const [gyro, setGyro] = useState({});
 	const [accel, setAccel] = useState({});
+	const [bmp, setBmp] = useState({});
 
-	//TODO: Remove this 
+	//TODO: Remove this
 	/*const sendMessage = () => {
 		socket.emit("msg", {msg: message})
 	} */
@@ -38,6 +39,7 @@ export default function App() {
 		socket.on("rSensorData", (data) => {
 			setGyro(data.gyro);
 			setAccel(data.accel);
+			setBmp(data.bmp);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [socket]);
@@ -50,7 +52,7 @@ export default function App() {
 			}}/>
 			<button onClick={sendMessage}>Send</button>*/}
 
-			<div className="left">
+			<div className="gyro">
 				<h2>Gyro</h2>
 				<div className="gyroDataVisualization">
 					<div className="gyroXZ">
@@ -80,7 +82,7 @@ export default function App() {
 					<li>Z: {gyro.z}</li>
 				</ul>
 			</div>
-			<div className="right">
+			<div className="accel">
 				<h2>Acceleration</h2>
 				<div className="accelDataVisualization">
 					<div className="accelXZ">
@@ -115,6 +117,40 @@ export default function App() {
 					<li>X: {accel.x}</li>
 					<li>Y: {accel.y}</li>
 					<li>Z: {accel.z}</li>
+				</ul>
+			</div>
+
+			{/*//TODO: Calibrate altitude indicators */}
+
+			<div className="bmp">
+				<h2>Barometric Pressure</h2>
+				<div className="altDataVisualization">
+					<div className="alt">
+						<div
+							className="centerLine"
+							style={{
+								transform: `translateY(${
+									scale(bmp.accel, 0, 1500, -148, 148) * -1
+								}px)`,
+							}}
+						></div>
+					</div>
+					<div className="calcAlt">
+						<div
+							className="centerLine"
+							style={{
+								transform: `translateY(${
+									scale(bmp.ca, 500, 2000, -148, 148) * -1
+								}px)`,
+							}}
+						></div>
+					</div>
+				</div>
+
+				<ul>
+					<li>Air Pressure: {bmp.p}hPa</li>
+					<li>Altitude: {bmp.a}m</li>
+					<li>Calculated Altitude: {bmp.ca}m</li>
 				</ul>
 			</div>
 		</div>
