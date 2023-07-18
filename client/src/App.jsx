@@ -22,6 +22,8 @@ function scale(number, inMin, inMax, outMin, outMax) {
 	return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
 
+const visBoxSize = 98;
+
 export default function App() {
 	//TODO: Remove this
 	//const [message, setMessage] = useState("");
@@ -39,7 +41,8 @@ export default function App() {
 		socket.on("rSensorData", (data) => {
 			setGyro(data.gyro);
 			setAccel(data.accel);
-			setBmp(data.bmp);
+			//TODO: Remove comment after bmp is implemented
+			//setBmp(data.bmp);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [socket]);
@@ -62,8 +65,8 @@ export default function App() {
 							className="centerDot cdGyroXZ"
 							style={{
 								transform: `translateX(${
-									scale(gyro.z, -286, 286, -125, 125) * -1
-								}px) translateY(${scale(gyro.x, -286, 286, -125, 125) * -1}px)`,
+									scale(gyro.z, -286, 286, -(visBoxSize-12), (visBoxSize-12)) * -1
+								}px) translateY(${scale(gyro.x, -286, 286, -(visBoxSize-12), (visBoxSize-12)) * -1}px)`,
 							}}
 						></div>
 					</div>
@@ -97,7 +100,7 @@ export default function App() {
 									2,
 									-148,
 									148
-								)}px) translateY(${scale(accel.z, -2, 2, -148, 148)}px)`,
+								)}px) translateY(${scale(accel.z, -2, 2, -visBoxSize, visBoxSize)}px)`,
 							}}
 						></div>
 					</div>
@@ -106,7 +109,7 @@ export default function App() {
 							className="centerDot cdAccelY"
 							style={{
 								transform: `translateY(${
-									scale(accel.y, -2, 2, -148, 148) * -1
+									scale(accel.y, -2, 2, -visBoxSize, visBoxSize) * -1
 								}px)`,
 							}}
 						></div>
@@ -127,23 +130,27 @@ export default function App() {
 				<div className="altDataVisualization">
 					<div className="alt">
 						<div
-							className="centerLine"
+							className="centerLine a"
 							style={{
 								transform: `translateY(${
-									scale(bmp.accel, 0, 1500, -148, 148) * -1
+									scale(bmp.accel, 0, 1500, -visBoxSize, visBoxSize)
 								}px)`,
 							}}
-						></div>
+						>
+							<p>{bmp.a} m</p>
+						</div>
 					</div>
 					<div className="calcAlt">
 						<div
-							className="centerLine"
+							className="centerLine ca"
 							style={{
-								transform: `translateY(${
-									scale(bmp.ca, 500, 2000, -148, 148) * -1
+								transform: `translateY( ${
+									scale(bmp.ca, 500, 2000, -visBoxSize, visBoxSize)
 								}px)`,
 							}}
-						></div>
+						>
+							<p>{bmp.ca} m</p>
+						</div>
 					</div>
 				</div>
 

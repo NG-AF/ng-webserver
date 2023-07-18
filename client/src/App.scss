@@ -12,7 +12,7 @@ file in a relevant directory) where a recipient would be likely to look
 for such a notice.
 *************************************************************************/
 
-$visBoxSize: 300px;
+$visBoxSize: 200px;
 
 * {
 	margin: 0;
@@ -256,7 +256,7 @@ $visBoxSize: 300px;
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			gap: 50px;
+			gap: 100px;
 
 			.alt, .calcAlt {
 				width: calc($visBoxSize / 6);
@@ -273,6 +273,13 @@ $visBoxSize: 300px;
 					top: calc(50% - 3px);
 					left: 0px;
 					background: #000;
+
+					p {
+						position: absolute;
+						font-size: 16px;
+						top: -16px;
+						left: 50px;
+					}
 				}
 			}
 		}
