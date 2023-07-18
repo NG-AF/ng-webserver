@@ -43,6 +43,10 @@ io.on("connection", (socket) => {
 
 });
 
+app.get("/api", (req, res) => {
+	res.sendStatus(200);
+});
+
 app.post("/api", (req, res) => {
 	io.sockets.emit("rSensorData", req.body);
 	res.sendStatus(201);
