@@ -22,14 +22,17 @@ function scale(number, inMin, inMax, outMin, outMax) {
 	return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
 
+const visBoxSize = 98;
+
 export default function App() {
 	//TODO: Remove this
 	//const [message, setMessage] = useState("");
 
 	const [gyro, setGyro] = useState({});
 	const [accel, setAccel] = useState({});
+	const [bmp, setBmp] = useState({});
 
-	//TODO: Remove this 
+	//TODO: Remove this
 	/*const sendMessage = () => {
 		socket.emit("msg", {msg: message})
 	} */
@@ -38,6 +41,8 @@ export default function App() {
 		socket.on("rSensorData", (data) => {
 			setGyro(data.gyro);
 			setAccel(data.accel);
+			//TODO: Remove comment after bmp is implemented
+			//setBmp(data.bmp);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [socket]);
@@ -50,7 +55,7 @@ export default function App() {
 			}}/>
 			<button onClick={sendMessage}>Send</button>*/}
 
-			<div className="left">
+			<div className="gyro">
 				<h2>Gyro</h2>
 				<div className="gyroDataVisualization">
 					<div className="gyroXZ">
@@ -60,8 +65,8 @@ export default function App() {
 							className="centerDot cdGyroXZ"
 							style={{
 								transform: `translateX(${
-									scale(gyro.z, -286, 286, -125, 125) * -1
-								}px) translateY(${scale(gyro.x, -286, 286, -125, 125) * -1}px)`,
+									scale(gyro.z, -286, 286, -(visBoxSize-12), (visBoxSize-12)) * -1
+								}px) translateY(${scale(gyro.x, -286, 286, -(visBoxSize-12), (visBoxSize-12)) * -1}px)`,
 							}}
 						></div>
 					</div>
@@ -80,7 +85,7 @@ export default function App() {
 					<li>Z: {gyro.z}</li>
 				</ul>
 			</div>
-			<div className="right">
+			<div className="accel">
 				<h2>Acceleration</h2>
 				<div className="accelDataVisualization">
 					<div className="accelXZ">
@@ -95,7 +100,7 @@ export default function App() {
 									2,
 									-148,
 									148
-								)}px) translateY(${scale(accel.z, -2, 2, -148, 148)}px)`,
+								)}px) translateY(${scale(accel.z, -2, 2, -visBoxSize, visBoxSize)}px)`,
 							}}
 						></div>
 					</div>
@@ -104,7 +109,7 @@ export default function App() {
 							className="centerDot cdAccelY"
 							style={{
 								transform: `translateY(${
-									scale(accel.y, -2, 2, -148, 148) * -1
+									scale(accel.y, -2, 2, -visBoxSize, visBoxSize) * -1
 								}px)`,
 							}}
 						></div>
@@ -115,6 +120,44 @@ export default function App() {
 					<li>X: {accel.x}</li>
 					<li>Y: {accel.y}</li>
 					<li>Z: {accel.z}</li>
+				</ul>
+			</div>
+
+			{/*//TODO: Calibrate altitude indicators */}
+
+			<div className="bmp">
+				<h2>Barometric Pressure</h2>
+				<div className="altDataVisualization">
+					<div className="alt">
+						<div
+							className="centerLine a"
+							style={{
+								transform: `translateY(${
+									scale(bmp.accel, 0, 1500, -visBoxSize, visBoxSize)
+								}px)`,
+							}}
+						>
+							<p>{bmp.a} m</p>
+						</div>
+					</div>
+					<div className="calcAlt">
+						<div
+							className="centerLine ca"
+							style={{
+								transform: `translateY( ${
+									scale(bmp.ca, 500, 2000, -visBoxSize, visBoxSize)
+								}px)`,
+							}}
+						>
+							<p>{bmp.ca} m</p>
+						</div>
+					</div>
+				</div>
+
+				<ul>
+					<li>Air Pressure: {bmp.p}hPa</li>
+					<li>Altitude: {bmp.a}m</li>
+					<li>Calculated Altitude: {bmp.ca}m</li>
 				</ul>
 			</div>
 		</div>
