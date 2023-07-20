@@ -85,6 +85,10 @@ export default function App() {
 					<li>Z: {gyro.z}</li>
 				</ul>
 			</div>
+
+			<iframe className="camera" src="http://192.168.1.21" height="540" width="680" title="Iframe Example">
+				test</iframe> 
+
 			<div className="accel">
 				<h2>Acceleration</h2>
 				<div className="accelDataVisualization">

@@ -12,7 +12,7 @@ file in a relevant directory) where a recipient would be likely to look
 for such a notice.
 *************************************************************************/
 
-$visBoxSize: 200px;
+$visBoxSize: 200px3;
 
 * {
 	margin: 0;
@@ -22,7 +22,7 @@ $visBoxSize: 200px;
 
 .App {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr 680px 1fr;
 	margin: 20px;
 	grid-gap: 20px;
 
