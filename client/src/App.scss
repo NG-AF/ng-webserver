@@ -65,7 +65,7 @@ $visBoxSize: 200px3;
 
 					&::after {
 						position: absolute;
-						content: '';
+						content: "";
 						width: $visBoxSize;
 						height: 1px;
 						background: #000;
@@ -81,7 +81,7 @@ $visBoxSize: 200px3;
 
 					&::after {
 						position: absolute;
-						content: '';
+						content: "";
 						height: $visBoxSize;
 						width: 1px;
 						background: #000;
@@ -134,6 +134,30 @@ $visBoxSize: 200px3;
 		}
 	}
 
+	.camera {
+		position: relative;
+
+		.levelIndicator {
+			position: absolute;
+			top: 130px;
+			left: 190px;
+			width: 300px;
+			height: 300px;
+			border: #fff solid 2px;
+			border-radius: 50%;
+
+			.levelLine {
+				position: absolute;
+				width: 280px;
+				height: 2px;
+				top: calc(50% - 1px);
+				left: 8px;
+				transition: 0.05s ease;
+				background: #fff;
+			}
+		}
+	}
+
 	.accel {
 		padding: 20px;
 		text-align: center;
@@ -164,7 +188,7 @@ $visBoxSize: 200px3;
 
 					&::after {
 						position: absolute;
-						content: '';
+						content: "";
 						width: $visBoxSize;
 						height: 1px;
 						background: #000;
@@ -180,7 +204,7 @@ $visBoxSize: 200px3;
 
 					&::after {
 						position: absolute;
-						content: '';
+						content: "";
 						height: $visBoxSize;
 						width: 1px;
 						background: #000;
@@ -258,7 +282,8 @@ $visBoxSize: 200px3;
 			align-items: center;
 			gap: 100px;
 
-			.alt, .calcAlt {
+			.alt,
+			.calcAlt {
 				width: calc($visBoxSize / 6);
 				height: $visBoxSize;
 				border: 2px black solid;
@@ -283,7 +308,6 @@ $visBoxSize: 200px3;
 				}
 			}
 		}
-
 
 		ul {
 			display: flex;

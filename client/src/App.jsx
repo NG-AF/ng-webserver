@@ -31,6 +31,7 @@ export default function App() {
 	const [gyro, setGyro] = useState({});
 	const [accel, setAccel] = useState({});
 	const [bmp, setBmp] = useState({});
+	const [angle, setAngle] = useState({});
 
 	//TODO: Remove this
 	/*const sendMessage = () => {
@@ -41,6 +42,7 @@ export default function App() {
 		socket.on("rSensorData", (data) => {
 			setGyro(data.gyro);
 			setAccel(data.accel);
+			setAngle(data.angle);
 			//TODO: Remove comment after bmp is implemented
 			//setBmp(data.bmp);
 		});
@@ -65,8 +67,22 @@ export default function App() {
 							className="centerDot cdGyroXZ"
 							style={{
 								transform: `translateX(${
-									scale(gyro.z, -286, 286, -(visBoxSize-12), (visBoxSize-12)) * -1
-								}px) translateY(${scale(gyro.x, -286, 286, -(visBoxSize-12), (visBoxSize-12)) * -1}px)`,
+									scale(
+										gyro.z,
+										-286,
+										286,
+										-(visBoxSize - 12),
+										visBoxSize - 12
+									) * -1
+								}px) translateY(${
+									scale(
+										gyro.x,
+										-286,
+										286,
+										-(visBoxSize - 12),
+										visBoxSize - 12
+									) * -1
+								}px)`,
 							}}
 						></div>
 					</div>
@@ -86,8 +102,20 @@ export default function App() {
 				</ul>
 			</div>
 
-			<iframe className="camera" src="http://192.168.1.21" height="540" width="680" title="Iframe Example">
-				test</iframe> 
+			<div className="camera">
+				<div className="levelIndicator">
+						<div className="levelLine" style={{
+							transform: `rotate(${angle.roll}deg)`,
+						}}></div>
+				</div>
+				<iframe
+					className="cameraIframe"
+					src="http://192.168.1.21"
+					height="540"
+					width="680"
+					title="Iframe Example"
+				></iframe>
+			</div>
 
 			<div className="accel">
 				<h2>Acceleration</h2>
@@ -104,7 +132,13 @@ export default function App() {
 									2,
 									-148,
 									148
-								)}px) translateY(${scale(accel.z, -2, 2, -visBoxSize, visBoxSize)}px)`,
+								)}px) translateY(${scale(
+									accel.z,
+									-2,
+									2,
+									-visBoxSize,
+									visBoxSize
+								)}px)`,
 							}}
 						></div>
 					</div>
@@ -136,9 +170,13 @@ export default function App() {
 						<div
 							className="centerLine a"
 							style={{
-								transform: `translateY(${
-									scale(bmp.accel, 0, 1500, -visBoxSize, visBoxSize)
-								}px)`,
+								transform: `translateY(${scale(
+									bmp.accel,
+									0,
+									1500,
+									-visBoxSize,
+									visBoxSize
+								)}px)`,
 							}}
 						>
 							<p>{bmp.a} m</p>
@@ -148,9 +186,13 @@ export default function App() {
 						<div
 							className="centerLine ca"
 							style={{
-								transform: `translateY( ${
-									scale(bmp.ca, 500, 2000, -visBoxSize, visBoxSize)
-								}px)`,
+								transform: `translateY( ${scale(
+									bmp.ca,
+									500,
+									2000,
+									-visBoxSize,
+									visBoxSize
+								)}px)`,
 							}}
 						>
 							<p>{bmp.ca} m</p>
