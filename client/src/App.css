@@ -19,7 +19,7 @@ for such a notice.
 
 .App {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 680px 1fr;
   margin: 20px;
   grid-gap: 20px;
 }
@@ -115,6 +115,27 @@ for such a notice.
 .App .gyro ul li:nth-child(3) {
   top: 0;
   right: 35%;
+}
+.App .camera {
+  position: relative;
+}
+.App .camera .levelIndicator {
+  position: absolute;
+  top: 130px;
+  left: 190px;
+  width: 300px;
+  height: 300px;
+  border: #fff solid 2px;
+  border-radius: 50%;
+}
+.App .camera .levelIndicator .levelLine {
+  position: absolute;
+  width: 280px;
+  height: 2px;
+  top: calc(50% - 1px);
+  left: 8px;
+  transition: 0.05s ease;
+  background: #fff;
 }
 .App .accel {
   padding: 20px;
@@ -224,7 +245,8 @@ for such a notice.
   align-items: center;
   gap: 100px;
 }
-.App .bmp .altDataVisualization .alt, .App .bmp .altDataVisualization .calcAlt {
+.App .bmp .altDataVisualization .alt,
+.App .bmp .altDataVisualization .calcAlt {
   width: 33.3333333333px;
   height: 200px;
   border: 2px black solid;
@@ -232,7 +254,8 @@ for such a notice.
   transition: 0.05s ease;
   background: linear-gradient(to top, #b46407, 40%, #1599ce 60%);
 }
-.App .bmp .altDataVisualization .alt .centerLine, .App .bmp .altDataVisualization .calcAlt .centerLine {
+.App .bmp .altDataVisualization .alt .centerLine,
+.App .bmp .altDataVisualization .calcAlt .centerLine {
   width: 100%;
   height: 1px;
   position: absolute;
@@ -240,7 +263,8 @@ for such a notice.
   left: 0px;
   background: #000;
 }
-.App .bmp .altDataVisualization .alt .centerLine p, .App .bmp .altDataVisualization .calcAlt .centerLine p {
+.App .bmp .altDataVisualization .alt .centerLine p,
+.App .bmp .altDataVisualization .calcAlt .centerLine p {
   position: absolute;
   font-size: 16px;
   top: -16px;
