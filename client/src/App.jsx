@@ -104,6 +104,7 @@ export default function App() {
 
 			<div className="camera">
 				<div className="levelIndicator">
+					<div className="angleIndicator">{angle.roll}°</div>
 						<div className="levelLine" style={{
 							transform: `rotate(${angle.roll}deg)`,
 						}}></div>
