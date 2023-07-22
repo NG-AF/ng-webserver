@@ -137,6 +137,15 @@ $visBoxSize: 200px;
 	.camera {
 		position: relative;
 
+		.angleIndicator {
+			font-size: 24px;
+			font-weight: bold;
+			color: #fff;
+			position: absolute;
+			top: -40px;
+			left: calc(50% - 18px);
+		}
+
 		.levelIndicator {
 			position: absolute;
 			top: 130px;

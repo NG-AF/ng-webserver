@@ -119,6 +119,14 @@ for such a notice.
 .App .camera {
   position: relative;
 }
+.App .camera .angleIndicator {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: -40px;
+  left: calc(50% - 18px);
+}
 .App .camera .levelIndicator {
   position: absolute;
   top: 130px;
