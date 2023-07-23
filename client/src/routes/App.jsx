@@ -17,45 +17,39 @@ import io from "socket.io-client";
 import "../styles/App.css";
 import "../components/Camera";
 import Camera from "../components/Camera";
+import Compass from "../components/Compass";
+import TextInfo from "../components/TextInfo";
 
 const socket = io.connect("http://192.168.1.12:3001");
 
-function scale(number, inMin, inMax, outMin, outMax) {
-	return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-}
-
 export default function App() {
-	//TODO: Remove this
-	//const [message, setMessage] = useState("");
-
-	const [gyro, setGyro] = useState({});
-	const [accel, setAccel] = useState({});
-	const [bmp, setBmp] = useState({});
 	const [angle, setAngle] = useState({});
-
-	//TODO: Remove this
-	/*const sendMessage = () => {
-		socket.emit("msg", {msg: message})
-	} */
+	const [velocity, setVelocity] = useState(0);
+	const [altitude, setAltitude] = useState(0);
 
 	useEffect(() => {
 		socket.on("rSensorData", (data) => {
-			setGyro(data.gyro);
-			setAccel(data.accel);
 			setAngle(data.angle);
-			//TODO: Remove comment after bmp is implemented
-			//setBmp(data.bmp);
+			setVelocity(data.velocity);
+			setAltitude(data.altitude);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [socket]);
 
 	return (
 		<div className="App">
+			<div className="compassAndTextInfo">
+				<Compass yawAngle={angle.yaw} />
+				<TextInfo
+					velocity={velocity}
+					altitude={altitude}
+					pitchAngle={angle.pitch}
+					rollAngle={angle.roll}
+					yawAngle={angle.yaw}
+				/>
+			</div>
 
-		<Camera rollAngle={angle.roll}/>
-
-			{/*//TODO: Calibrate altitude indicators */}
-
+			<Camera rollAngle={angle.roll} />
 		</div>
 	);
 }
