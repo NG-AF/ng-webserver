@@ -1,0 +1,156 @@
+/************************************************************************
+                    Source Code Form License Notice
+            -------------------------------------------
+
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.
+*************************************************************************/
+
+$visBoxSize: 200px;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.App {
+	display: grid;
+	grid-template-columns: 1fr 680px 1fr;
+	grid-template-rows: 540px;
+	margin: 20px;
+	grid-gap: 20px;
+	justify-items: center;
+	align-items: center;
+
+	.compassAndTextInfo {
+		display: grid;
+		grid-template-rows: 250px 160px;
+		justify-items: center;
+		align-items: center;
+		gap: 50px;
+	}
+
+	.Compass {
+		position: relative;
+
+		.outerRing {
+			position: relative;
+			width: 250px;
+			height: 250px;
+			border-radius: 50%;
+			border: 3px dashed #000;
+			transition: 0.05s ease;
+
+			.centering {
+				height: 50px;
+				width: 3px;
+				background: #000;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				transition: 0.05s ease;
+			}
+
+			p {
+				color: #000;
+				position: absolute;
+				display: block;
+				width: fit-content;
+				height: fit-content;
+				margin: auto;
+				font-weight: bolder;
+
+				&#north {
+					top: 0;
+					left: 0;
+					right: 0;
+					color: #f00;
+				}
+
+				&#west {
+					top: 0;
+					bottom: 0;
+					left: 5px;
+				}
+
+				&#south {
+					bottom: -5px;
+					left: 0;
+					right: 0;
+				}
+
+				&#east {
+					top: 0;
+					bottom: 0;
+					right: 8px;
+				}
+			}
+		}
+	}
+
+	.TextInfo {
+		width: 170px;
+		height: fit-content;
+
+		span.varName {
+			font-weight: bold;
+		}
+	}
+
+	.Camera {
+		position: relative;
+
+		.levelIndicator {
+			position: absolute;
+			top: 130px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			text-align: center;
+			width: 300px;
+			height: 300px;
+			border: #fff solid 2px;
+			border-radius: 50%;
+
+			.angleIndicator {
+				font-size: 24px;
+				font-weight: bold;
+				color: #fff;
+				position: absolute;
+				top: -49px;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			.levelLine {
+				position: absolute;
+				width: 280px;
+				height: 2px;
+				top: calc(50% - 1px);
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				text-align: center;
+				transition: 0.05s ease;
+				background: #fff;
+			}
+		}
+
+		.cameraIframe {
+			height: 540px;
+			width: 680px;
+		}
+	}
+}

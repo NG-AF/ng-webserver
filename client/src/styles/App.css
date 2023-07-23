@@ -1,0 +1,140 @@
+/************************************************************************
+                    Source Code Form License Notice
+            -------------------------------------------
+
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.
+*************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr 680px 1fr;
+  grid-template-rows: 540px;
+  margin: 20px;
+  grid-gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+.App .compassAndTextInfo {
+  display: grid;
+  grid-template-rows: 250px 160px;
+  justify-items: center;
+  align-items: center;
+  gap: 50px;
+}
+.App .Compass {
+  position: relative;
+}
+.App .Compass .outerRing {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px dashed #000;
+  transition: 0.05s ease;
+}
+.App .Compass .outerRing .centering {
+  height: 50px;
+  width: 3px;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: 0.05s ease;
+}
+.App .Compass .outerRing p {
+  color: #000;
+  position: absolute;
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  font-weight: bolder;
+}
+.App .Compass .outerRing p#north {
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #f00;
+}
+.App .Compass .outerRing p#west {
+  top: 0;
+  bottom: 0;
+  left: 5px;
+}
+.App .Compass .outerRing p#south {
+  bottom: -5px;
+  left: 0;
+  right: 0;
+}
+.App .Compass .outerRing p#east {
+  top: 0;
+  bottom: 0;
+  right: 8px;
+}
+.App .TextInfo {
+  width: 170px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.App .TextInfo span.varName {
+  font-weight: bold;
+}
+.App .Camera {
+  position: relative;
+}
+.App .Camera .levelIndicator {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  border: #fff solid 2px;
+  border-radius: 50%;
+}
+.App .Camera .levelIndicator .angleIndicator {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: -49px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+.App .Camera .levelIndicator .levelLine {
+  position: absolute;
+  width: 280px;
+  height: 2px;
+  top: calc(50% - 1px);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  transition: 0.05s ease;
+  background: #fff;
+}
+.App .Camera .cameraIframe {
+  height: 540px;
+  width: 680px;
+}/*# sourceMappingURL=App.css.map */
