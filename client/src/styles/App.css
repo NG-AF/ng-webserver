@@ -36,15 +36,7 @@ for such a notice.
 .App .topLeft .Compass {
   position: relative;
 }
-.App .topLeft .Compass .outerRing {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 3px dashed #000;
-  transition: 0.05s ease;
-}
-.App .topLeft .Compass .outerRing .centering {
+.App .topLeft .Compass .centering {
   height: 50px;
   width: 3px;
   background: #000;
@@ -54,6 +46,14 @@ for such a notice.
   right: 0;
   bottom: 0;
   margin: auto;
+  transition: 0.05s ease;
+}
+.App .topLeft .Compass .outerRing {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 3px dashed #000;
   transition: 0.05s ease;
 }
 .App .topLeft .Compass .outerRing p {
