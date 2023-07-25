@@ -26,17 +26,17 @@ for such a notice.
   justify-items: center;
   align-items: center;
 }
-.App .compassAndTextInfo {
+.App .topLeft {
   display: grid;
   grid-template-rows: 250px 160px;
   justify-items: center;
   align-items: center;
   gap: 50px;
 }
-.App .Compass {
+.App .topLeft .Compass {
   position: relative;
 }
-.App .Compass .outerRing {
+.App .topLeft .Compass .outerRing {
   position: relative;
   width: 250px;
   height: 250px;
@@ -44,7 +44,7 @@ for such a notice.
   border: 3px dashed #000;
   transition: 0.05s ease;
 }
-.App .Compass .outerRing .centering {
+.App .topLeft .Compass .outerRing .centering {
   height: 50px;
   width: 3px;
   background: #000;
@@ -56,7 +56,7 @@ for such a notice.
   margin: auto;
   transition: 0.05s ease;
 }
-.App .Compass .outerRing p {
+.App .topLeft .Compass .outerRing p {
   color: #000;
   position: absolute;
   display: block;
@@ -67,33 +67,33 @@ for such a notice.
   margin: auto;
   font-weight: bolder;
 }
-.App .Compass .outerRing p#north {
+.App .topLeft .Compass .outerRing p#north {
   top: 0;
   left: 0;
   right: 0;
   color: #f00;
 }
-.App .Compass .outerRing p#west {
+.App .topLeft .Compass .outerRing p#west {
   top: 0;
   bottom: 0;
   left: 5px;
 }
-.App .Compass .outerRing p#south {
+.App .topLeft .Compass .outerRing p#south {
   bottom: -5px;
   left: 0;
   right: 0;
 }
-.App .Compass .outerRing p#east {
+.App .topLeft .Compass .outerRing p#east {
   top: 0;
   bottom: 0;
   right: 8px;
 }
-.App .TextInfo {
+.App .topLeft .TextInfo {
   width: 170px;
   height: -moz-fit-content;
   height: fit-content;
 }
-.App .TextInfo span.varName {
+.App .topLeft .TextInfo span.varName {
   font-weight: bold;
 }
 .App .Camera {
@@ -137,4 +137,40 @@ for such a notice.
 .App .Camera .cameraIframe {
   height: 540px;
   width: 680px;
+}
+.App .topRight .AmpMeter {
+  position: relative;
+  width: 250px;
+  height: 25px;
+  background: #7e7e7e;
+}
+.App .topRight .AmpMeter h3 {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.App .topRight .AmpMeter p {
+  position: absolute;
+}
+.App .topRight .AmpMeter p#zero {
+  left: -30px;
+}
+.App .topRight .AmpMeter p#max {
+  right: -40px;
+}
+.App .topRight .AmpMeter p#currentAmp {
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 30px;
+}
+.App .topRight .AmpMeter .gaugeFiller {
+  position: absolute;
+  height: 25px;
+  top: 0;
+  left: 0;
+  background: #77ff55;
+  transition: 0.1s ease;
 }/*# sourceMappingURL=App.css.map */

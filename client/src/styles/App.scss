@@ -29,82 +29,83 @@ $visBoxSize: 200px;
 	justify-items: center;
 	align-items: center;
 
-	.compassAndTextInfo {
+	.topLeft {
 		display: grid;
 		grid-template-rows: 250px 160px;
 		justify-items: center;
 		align-items: center;
 		gap: 50px;
-	}
 
-	.Compass {
-		position: relative;
-
-		.outerRing {
+		.Compass {
 			position: relative;
-			width: 250px;
-			height: 250px;
-			border-radius: 50%;
-			border: 3px dashed #000;
-			transition: 0.05s ease;
-
-			.centering {
-				height: 50px;
-				width: 3px;
-				background: #000;
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				margin: auto;
+	
+			.outerRing {
+				position: relative;
+				width: 250px;
+				height: 250px;
+				border-radius: 50%;
+				border: 3px dashed #000;
 				transition: 0.05s ease;
-			}
-
-			p {
-				color: #000;
-				position: absolute;
-				display: block;
-				width: fit-content;
-				height: fit-content;
-				margin: auto;
-				font-weight: bolder;
-
-				&#north {
+	
+				.centering {
+					height: 50px;
+					width: 3px;
+					background: #000;
+					position: absolute;
 					top: 0;
 					left: 0;
 					right: 0;
-					color: #f00;
-				}
-
-				&#west {
-					top: 0;
 					bottom: 0;
-					left: 5px;
+					margin: auto;
+					transition: 0.05s ease;
 				}
-
-				&#south {
-					bottom: -5px;
-					left: 0;
-					right: 0;
-				}
-
-				&#east {
-					top: 0;
-					bottom: 0;
-					right: 8px;
+	
+				p {
+					color: #000;
+					position: absolute;
+					display: block;
+					width: fit-content;
+					height: fit-content;
+					margin: auto;
+					font-weight: bolder;
+	
+					&#north {
+						top: 0;
+						left: 0;
+						right: 0;
+						color: #f00;
+					}
+	
+					&#west {
+						top: 0;
+						bottom: 0;
+						left: 5px;
+					}
+	
+					&#south {
+						bottom: -5px;
+						left: 0;
+						right: 0;
+					}
+	
+					&#east {
+						top: 0;
+						bottom: 0;
+						right: 8px;
+					}
 				}
 			}
 		}
-	}
-
-	.TextInfo {
-		width: 170px;
-		height: fit-content;
-
-		span.varName {
-			font-weight: bold;
+	
+		.TextInfo {
+			width: 170px;
+			height: fit-content;
+	
+			span.varName {
+				font-weight: bold;
+			}
 		}
+
 	}
 
 	.Camera {
@@ -151,6 +152,51 @@ $visBoxSize: 200px;
 		.cameraIframe {
 			height: 540px;
 			width: 680px;
+		}
+	}
+
+	.topRight {
+		.AmpMeter {
+			position: relative;
+			width: 250px;
+			height: 25px;
+			background: #7e7e7e;
+
+			h3 {
+				position: absolute;
+				top: -50px;
+				left: 0;
+				right: 0;
+				text-align: center;
+			}
+
+			p {
+				position: absolute;
+
+				&#zero {
+					left: -30px;
+				}
+
+				&#max {
+					right: -40px
+				}
+
+				&#currentAmp {
+					left: 0;
+					right: 0;
+					text-align: center;
+					top: 30px;
+				}
+			}
+
+			.gaugeFiller {
+				position: absolute;
+				height: 25px;
+				top: 0;
+				left: 0;
+				background: #77ff55;
+				transition: .1s ease;
+			}
 		}
 	}
 }
