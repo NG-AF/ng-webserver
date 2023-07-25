@@ -1,15 +1,13 @@
 export default function Compass({ yawAngle }) {
 	return (
 		<div className="Compass">
+			<div className="centering"></div>
 			<div
 				className="outerRing"
 				style={{
-					transform: `rotate(-${yawAngle}deg)`,
+					transform: `rotate(${yawAngle}deg)`,
 				}}
 			>	
-			<div className="centering" style={{
-					transform: `rotate(${yawAngle}deg)`,
-				}}></div>
 				<p id="north">N</p>
 				<p id="east">E</p>
 				<p id="south">S</p>
