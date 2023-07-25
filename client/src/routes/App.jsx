@@ -19,6 +19,7 @@ import "../components/Camera";
 import Camera from "../components/Camera";
 import Compass from "../components/Compass";
 import TextInfo from "../components/TextInfo";
+import AmpMeter from "../components/AmpMeter";
 
 const socket = io.connect("http://192.168.1.12:3001");
 
@@ -26,19 +27,21 @@ export default function App() {
 	const [angle, setAngle] = useState({});
 	const [velocity, setVelocity] = useState(0);
 	const [altitude, setAltitude] = useState(0);
+	const [amp, setAmp] = useState(0);
 
 	useEffect(() => {
 		socket.on("rSensorData", (data) => {
 			setAngle(data.angle);
 			setVelocity(data.velocity);
 			setAltitude(data.altitude);
+			setAmp(data.amp);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [socket]);
 
 	return (
 		<div className="App">
-			<div className="compassAndTextInfo">
+			<div className="topLeft">
 				<Compass yawAngle={angle.yaw} />
 				<TextInfo
 					velocity={velocity}
@@ -50,6 +53,10 @@ export default function App() {
 			</div>
 
 			<Camera rollAngle={angle.roll} />
+
+			<div className="topRight">
+				<AmpMeter amp={amp}/>
+			</div>
 		</div>
 	);
 }
