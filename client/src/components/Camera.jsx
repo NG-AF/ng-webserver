@@ -12,7 +12,7 @@ export default function Camera({ rollAngle }) {
 			</div>
 			<iframe
 				className="cameraIframe"
-				src="http://192.168.1.21"
+				src="http://10.0.0.3"
 				title="deneyapCameraIframe"
 			></iframe>
 		</div>

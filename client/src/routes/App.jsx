@@ -22,10 +22,10 @@ import TextInfo from "../components/TextInfo";
 import AmpMeter from "../components/AmpMeter";
 
 //const socket = io.connect("http://192.168.1.100:3001");
-const socket = io("http://192.168.1.100:3001", {
+const socket = io("http://10.0.0.2:3001", {
 	withCredentials: true,
 	extraHeaders: {
-		"Access-Control-Allow-Origin": "http://192.168.1.100:3000"
+		"Access-Control-Allow-Origin": "http://10.0.0.2:3000"
 	}
 })
 
@@ -34,13 +34,15 @@ export default function App() {
 	const [velocity, setVelocity] = useState(0);
 	const [altitude, setAltitude] = useState(0);
 	const [amp, setAmp] = useState({});
+	const [dataLog, setDataLog] = useState({});
 
 	useEffect(() => {
 		socket.on("rSensorData", (data) => {
 			setAngle(data.angle);
 			//setVelocity(data.velocity);
-			//setAltitude(data.altitude);
+			setAltitude(data.altitude);
 			setAmp(data.accel);
+			setDataLog(data);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [socket]);
