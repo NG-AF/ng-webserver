@@ -19,8 +19,8 @@ for such a notice.
 
 .App {
   display: grid;
-  grid-template-columns: 1fr 680px 1fr;
   grid-template-rows: 540px;
+  grid-template: "CompassAndTextInfo Camera AmpMeter" "OrientationCube something otherThing";
   margin: 20px;
   grid-gap: 20px;
   justify-items: center;
@@ -28,6 +28,7 @@ for such a notice.
 }
 .App .topLeft {
   display: grid;
+  grid-area: CompassAndTextInfo;
   grid-template-rows: 250px 160px;
   justify-items: center;
   align-items: center;
@@ -98,6 +99,7 @@ for such a notice.
 }
 .App .Camera {
   position: relative;
+  grid-area: Camera;
 }
 .App .Camera .levelIndicator {
   position: absolute;
@@ -138,39 +140,81 @@ for such a notice.
   height: 540px;
   width: 680px;
 }
-.App .topRight .AmpMeter {
+.App .AmpMeter {
+  grid-area: AmpMeter;
   position: relative;
   width: 250px;
   height: 25px;
   background: #7e7e7e;
 }
-.App .topRight .AmpMeter h3 {
+.App .AmpMeter h3 {
   position: absolute;
   top: -50px;
   left: 0;
   right: 0;
   text-align: center;
 }
-.App .topRight .AmpMeter p {
+.App .AmpMeter p {
   position: absolute;
 }
-.App .topRight .AmpMeter p#zero {
+.App .AmpMeter p#zero {
   left: -30px;
 }
-.App .topRight .AmpMeter p#max {
+.App .AmpMeter p#max {
   right: -40px;
 }
-.App .topRight .AmpMeter p#currentAmp {
+.App .AmpMeter p#currentAmp {
   left: 0;
   right: 0;
   text-align: center;
   top: 30px;
 }
-.App .topRight .AmpMeter .gaugeFiller {
+.App .AmpMeter .gaugeFiller {
   position: absolute;
   height: 25px;
   top: 0;
   left: 0;
   background: #77ff55;
   transition: 0.1s ease;
+}
+.App .OrientationCube {
+  grid-area: OrientationCube;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  width: 100px;
+  height: 100px;
+  transform-origin: left bottom 50px;
+  transition: transform 0.2s ease;
+  perspective: 10000px;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+.App .OrientationCube div {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px dotted rgba(0, 0, 0, 0.2666666667);
+}
+.App .OrientationCube div.front {
+  transform: rotateY(0) translateZ(50px);
+  border-left: 2px solid green;
+  border-bottom: 2px solid blue;
+}
+.App .OrientationCube div.back {
+  transform: rotateY(180deg) translateZ(50px);
+}
+.App .OrientationCube div.left {
+  transform: rotateY(-90deg) translateZ(50px);
+  border-bottom: 2px red solid;
+}
+.App .OrientationCube div.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+.App .OrientationCube div.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+.App .OrientationCube div.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
 }/*# sourceMappingURL=App.css.map */

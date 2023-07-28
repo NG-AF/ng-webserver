@@ -20,29 +20,29 @@ import Camera from "../components/Camera";
 import Compass from "../components/Compass";
 import TextInfo from "../components/TextInfo";
 import AmpMeter from "../components/AmpMeter";
+import OrientationCube from "../components/OrientationCube";
 
-//const socket = io.connect("http://192.168.1.100:3001");
-const socket = io("http://10.0.0.2:3001", {
+const credentials = require("../credentials.json");
+
+const socket = io(`http://${credentials.IP}:${credentials.serverPort}`, {
 	withCredentials: true,
 	extraHeaders: {
-		"Access-Control-Allow-Origin": "http://10.0.0.2:3000"
-	}
-})
+		"Access-Control-Allow-Origin": `http://${credentials.IP}:${credentials.clientPort}`,
+	},
+});
 
 export default function App() {
 	const [angle, setAngle] = useState({});
 	const [velocity, setVelocity] = useState(0);
 	const [altitude, setAltitude] = useState(0);
-	const [amp, setAmp] = useState({});
-	const [dataLog, setDataLog] = useState({});
+	const [amp, setAmp] = useState(0);
 
 	useEffect(() => {
 		socket.on("rSensorData", (data) => {
 			setAngle(data.angle);
-			//setVelocity(data.velocity);
+			setVelocity(data.velocity);
 			setAltitude(data.altitude);
-			setAmp(data.accel);
-			setDataLog(data);
+			setAmp(data.amp);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [socket]);
@@ -62,9 +62,9 @@ export default function App() {
 
 			<Camera rollAngle={angle.roll} />
 
-			<div className="topRight">
-				<AmpMeter amp={amp.z}/>
-			</div>
+			<AmpMeter amp={amp} />
+
+			<OrientationCube pitch={angle.pitch} roll={angle.roll} yaw={angle.yaw} />
 		</div>
 	);
 }

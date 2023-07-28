@@ -16,6 +16,7 @@ const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
+const credentials = require("./credentials.json");
 
 const app = express();
 
@@ -26,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 const server = http.createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: `http://10.0.0.2:3000`,
+		origin: `http://${credentials.IP}:${credentials.clientPort}`,//const socket = io.connect("http://192.168.1.100:3001");
 		methods: ["GET", "POST"],
 		allowedHeaders: ['Access-Control-Allow-Origin'],
 		credentials: true,
@@ -52,5 +53,5 @@ app.post("/api", (req, res) => {
 });
 
 server.listen(3001, () => {
-	console.log(`listening on 10.0.0.2:3001`);
+	console.log(`listening on ${credentials.IP}:${credentials.serverPort}`);
 });

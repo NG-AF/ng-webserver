@@ -22,8 +22,9 @@ $visBoxSize: 200px;
 
 .App {
 	display: grid;
-	grid-template-columns: 1fr 680px 1fr;
 	grid-template-rows: 540px;
+	grid-template: 	"CompassAndTextInfo Camera AmpMeter"
+									"OrientationCube something otherThing";
 	margin: 20px;
 	grid-gap: 20px;
 	justify-items: center;
@@ -31,6 +32,7 @@ $visBoxSize: 200px;
 
 	.topLeft {
 		display: grid;
+		grid-area: CompassAndTextInfo;
 		grid-template-rows: 250px 160px;
 		justify-items: center;
 		align-items: center;
@@ -51,7 +53,7 @@ $visBoxSize: 200px;
 				margin: auto;
 				transition: 0.05s ease;
 			}
-	
+
 			.outerRing {
 				position: relative;
 				width: 250px;
@@ -59,8 +61,7 @@ $visBoxSize: 200px;
 				border-radius: 50%;
 				border: 3px dashed #000;
 				transition: 0.05s ease;
-	
-	
+
 				p {
 					color: #000;
 					position: absolute;
@@ -69,26 +70,26 @@ $visBoxSize: 200px;
 					height: fit-content;
 					margin: auto;
 					font-weight: bolder;
-	
+
 					&#north {
 						top: 0;
 						left: 0;
 						right: 0;
 						color: #f00;
 					}
-	
+
 					&#west {
 						top: 0;
 						bottom: 0;
 						left: 5px;
 					}
-	
+
 					&#south {
 						bottom: -5px;
 						left: 0;
 						right: 0;
 					}
-	
+
 					&#east {
 						top: 0;
 						bottom: 0;
@@ -97,20 +98,20 @@ $visBoxSize: 200px;
 				}
 			}
 		}
-	
+
 		.TextInfo {
 			width: 170px;
 			height: fit-content;
-	
+
 			span.varName {
 				font-weight: bold;
 			}
 		}
-
 	}
 
 	.Camera {
 		position: relative;
+		grid-area: Camera;
 
 		.levelIndicator {
 			position: absolute;
@@ -156,47 +157,94 @@ $visBoxSize: 200px;
 		}
 	}
 
-	.topRight {
-		.AmpMeter {
-			position: relative;
-			width: 250px;
-			height: 25px;
-			background: #7e7e7e;
+	.AmpMeter {
+		grid-area: AmpMeter;
+		position: relative;
+		width: 250px;
+		height: 25px;
+		background: #7e7e7e;
 
-			h3 {
-				position: absolute;
-				top: -50px;
+		h3 {
+			position: absolute;
+			top: -50px;
+			left: 0;
+			right: 0;
+			text-align: center;
+		}
+
+		p {
+			position: absolute;
+
+			&#zero {
+				left: -30px;
+			}
+
+			&#max {
+				right: -40px;
+			}
+
+			&#currentAmp {
 				left: 0;
 				right: 0;
 				text-align: center;
+				top: 30px;
+			}
+		}
+
+		.gaugeFiller {
+			position: absolute;
+			height: 25px;
+			top: 0;
+			left: 0;
+			background: #77ff55;
+			transition: 0.1s ease;
+		}
+	}
+	.OrientationCube {
+		grid-area: OrientationCube;
+		position: relative;
+		transform-style: preserve-3d;
+		transform: translateZ(-100px);
+		width: 100px;
+		height: 100px;
+		transform-origin: left bottom 50px;
+		transition: transform 0.2s ease;
+		perspective: 10000px;
+		margin-top: 100px;
+		margin-left: 50px;
+
+		div {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			background: #0003;
+			border: 1px dotted #0004;
+
+			&.front {
+				transform: rotateY(0) translateZ(50px);
+				border-left: 2px solid green;
+				border-bottom: 2px solid blue;
 			}
 
-			p {
-				position: absolute;
-
-				&#zero {
-					left: -30px;
-				}
-
-				&#max {
-					right: -40px
-				}
-
-				&#currentAmp {
-					left: 0;
-					right: 0;
-					text-align: center;
-					top: 30px;
-				}
+			&.back {
+				transform: rotateY(180deg) translateZ(50px);
 			}
 
-			.gaugeFiller {
-				position: absolute;
-				height: 25px;
-				top: 0;
-				left: 0;
-				background: #77ff55;
-				transition: .1s ease;
+			&.left {
+				transform: rotateY(-90deg) translateZ(50px);
+				border-bottom: 2px red solid;
+			}
+
+			&.right {
+				transform: rotateY(90deg) translateZ(50px);
+			}
+
+			&.top {
+				transform: rotateX(90deg) translateZ(50px);
+			}
+
+			&.bottom {
+				transform: rotateX(-90deg) translateZ(50px);
 			}
 		}
 	}
