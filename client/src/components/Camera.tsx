@@ -1,4 +1,10 @@
-export default function Camera({ rollAngle }) {
+import React from "react";
+
+type Props = {
+	rollAngle: number
+}
+
+export default function Camera({ rollAngle }: Props) {
 	return (
 		<div className="Camera">
 			<div className="levelIndicator">

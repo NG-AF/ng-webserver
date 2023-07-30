@@ -1,10 +1,20 @@
+import React from "react";
+
+type Props = {
+	velocity: number,
+	altitude: number,
+	pitchAngle: number,
+	rollAngle: number,
+	yawAngle: number
+}
+
 export default function TextInfo({
 	velocity = 0,
 	altitude = 0,
 	pitchAngle = 0,
 	rollAngle = 0,
 	yawAngle = 0,
-}) {
+}: Props) {
 	return (
 		<div className="TextInfo">
 			<p className="velocity">
