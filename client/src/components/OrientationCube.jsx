@@ -3,7 +3,7 @@ export default function OrientationCube({ pitch = 0, roll = 0, yaw = 0 }) {
 		<div
 			className="OrientationCube"
 			style={{
-				transform: `rotateX(${pitch}deg) rotateY(${yaw}deg) rotateZ(${roll}deg)`,
+				transform: `rotateX(${-pitch}deg) rotateY(${-yaw}deg) rotateZ(${roll}deg)`,
 			}}
 		>
 			<div className="front"></div>

@@ -17,6 +17,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 const credentials = require("./credentials.json");
+const { time, timeStamp } = require("console");
 
 const app = express();
 
@@ -46,9 +47,14 @@ app.get("/api", (req, res) => {
 	res.sendStatus(200);
 });
 
+const date = new Date();
+const timestamp = date.getTime();
+
 app.post("/api", (req, res) => {
 	io.sockets.emit("rSensorData", req.body);
-	res.sendStatus(201);
+	res.send({
+		createdAt: timestamp,
+	});
 	console.log(req.body);
 });
 
