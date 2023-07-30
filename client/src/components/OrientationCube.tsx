@@ -1,4 +1,12 @@
-export default function OrientationCube({ pitch = 0, roll = 0, yaw = 0 }) {
+import React from "react";
+
+type Props = {
+	pitch: number,
+	roll: number,
+	yaw: number
+}
+
+export default function OrientationCube({ pitch = 0, roll = 0, yaw = 0 }: Props) {
 	return (
 		<div
 			className="OrientationCube"

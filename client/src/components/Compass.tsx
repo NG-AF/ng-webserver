@@ -1,4 +1,10 @@
-export default function Compass({ yawAngle }) {
+import React from "react";
+
+type Props = {
+	yawAngle: number
+}
+
+export default function Compass({ yawAngle }: Props) {
 	return (
 		<div className="Compass">
 			<div className="centering"></div>
