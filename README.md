@@ -15,7 +15,7 @@
   </p>
 </p>
 
-![Contributors](https://img.shields.io/github/contributors/NG-AF/ng-webserver?color=dark-green) ![Issues](https://img.shields.io/github/issues/NG-AF/ng-webserver) ![License](https://img.shields.io/badge/license-MPL2.0-blue)
+![Contributors](https://img.shields.io/github/contributors/NG-AF/ng-webserver?color=dark-green) ![Issues](https://img.shields.io/github/issues/NG-AF/ng-webserver) ![License](https://img.shields.io/badge/license-MPL2.0-blue) ![GitHub repo size](https://img.shields.io/github/repo-size/NG-AF/ng-webserver)
 
 
 ## Table Of Contents
