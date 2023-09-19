@@ -1,6 +1,6 @@
 <br/>
 <p align="center">
-  <h3 align="center">NG-WebServer</h3>
+  <h3 align="center">NG-WebServer [DEPRECATED]</h3>
 
   <p align="center">
     NG Plane data visualisation server
