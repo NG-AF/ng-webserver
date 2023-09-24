@@ -20,6 +20,7 @@ import Compass from "../components/Compass";
 import TextInfo from "../components/TextInfo";
 import AmpMeter from "../components/AmpMeter";
 import OrientationCube from "../components/OrientationCube";
+import GamepadInput from "../components/GamepadInput";
 
 const credentials = require("../credentials.json");
 
@@ -75,6 +76,8 @@ export default function App() {
 			<AmpMeter amp={amp} />
 
 			<OrientationCube pitch={angle.pitch} roll={angle.roll} yaw={angle.yaw} />
+
+			<GamepadInput />
 		</div>
 	);
 }

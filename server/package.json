@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js >>  2023.09.24.txt"
   },
   "dependencies": {
     "cors": "^2.8.5",
