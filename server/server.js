@@ -18,6 +18,7 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const credentials = require("./credentials.json");
 const { time, timeStamp } = require("console");
+const fs = require("fs");
 
 const app = express();
 
@@ -28,9 +29,9 @@ app.use(express.urlencoded({ extended: false }));
 const server = http.createServer(app);
 const io = new Server(server, {
 	cors: {
-		origin: `http://${credentials.IP}:${credentials.clientPort}`,//const socket = io.connect("http://192.168.1.100:3001");
+		origin: `http://${credentials.IP}:${credentials.clientPort}`, //const socket = io.connect("http://192.168.1.100:3001");
 		methods: ["GET", "POST"],
-		allowedHeaders: ['Access-Control-Allow-Origin'],
+		allowedHeaders: ["Access-Control-Allow-Origin"],
 		credentials: true,
 	},
 });
@@ -52,6 +53,9 @@ const timestamp = date.getTime();
 
 app.post("/api", (req, res) => {
 	io.sockets.emit("rSensorData", req.body);
+	fs.appendFile("output.txt", JSON.stringify(req.body), (err) => {
+		if (err) throw err;
+	});
 	res.send({
 		createdAt: timestamp,
 	});

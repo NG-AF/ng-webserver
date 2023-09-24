@@ -12,16 +12,15 @@ const scale = (number: number, [inMin, inMax]:Array<number>, [outMin, outMax]:Ar
 export default function AmpMeter({ amp }: AmpMeterProps) {
 	return (
 		<div className="AmpMeter">
-			<h3>Current Amp</h3>
 			<p id="zero">0 A</p>
 			<p id="max">10 A</p>
 			<div
 				className="gaugeFiller"
 				style={{
-					width: `${scale(amp, [0, 10], [0, 250])}px`,
+					width: `${scale(amp, [-0.7007874250411987 , 0.7086614370346069 ], [0, 250])}px`,
 				}}
 			></div>
-			<p id="currentAmp">{amp} A</p>
+			<p id="currentAmp">{scale(amp, [-0.7007874250411987 , 0.7086614370346069 ], [0, 100]).toString().slice(0,5)} %</p>
 		</div>
 	);
 }
